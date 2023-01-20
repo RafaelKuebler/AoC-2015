@@ -31,8 +31,8 @@ if __name__ == "__main__":
 
     solution1 = solve(lines)
     print(solution1)
-    #assert solution1 == 1606483
+    assert solution1 == 1606483
 
     solution2 = solve2(lines)
     print(solution2)
-    #assert solution2 == 3842356
+    assert solution2 == 3842356
