@@ -1,5 +1,3 @@
-from typing import List
-
 
 def solve(chars: str, part2: bool = False) -> int:
     floor = 0
@@ -16,7 +14,7 @@ def solve(chars: str, part2: bool = False) -> int:
 
 if __name__ == "__main__":
     with open("day1/input.txt") as fd:
-        chars: List[str] = fd.readline().strip()
+        chars: str = fd.readline().strip()
 
     solution1 = solve(chars)
     print(solution1)
