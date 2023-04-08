@@ -1,6 +1,3 @@
-from typing import Dict, List, Set, Tuple
-from itertools import permutations
-
 
 def solve(sequence: str, iterations: int) -> int:
     sequence += "X"
