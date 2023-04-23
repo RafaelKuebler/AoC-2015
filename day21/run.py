@@ -14,7 +14,6 @@ class Item:
 def costs(own_hp: int, enemy_hp: int, damage: int, armor: int, weapons: List[Item], armors: List[Item], rings: List[Item]) -> List[Tuple[int, bool]]:
     costs_and_win = []
 
-    enemy_hp
     for combi in product(weapons, armors, rings, rings):
         own_dmg = sum(x.damage for x in combi)
         own_armor = sum(x.armor for x in combi)
