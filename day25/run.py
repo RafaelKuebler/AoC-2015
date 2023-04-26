@@ -1,4 +1,3 @@
-
 def solve() -> int:
     cur = 20151125
     row = 3010

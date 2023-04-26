@@ -1,14 +1,15 @@
 import hashlib
 
+
 def hash(string: str) -> str:
-    return hashlib.md5(string.encode('utf-8')).hexdigest()
+    return hashlib.md5(string.encode("utf-8")).hexdigest()
 
 
 def solve(secret: str, leading_zeroes: int) -> int:
     num = 0
-    while hash(secret + str(num))[:leading_zeroes] != "0"*leading_zeroes:
+    while hash(secret + str(num))[:leading_zeroes] != "0" * leading_zeroes:
         num += 1
-    
+
     return num
 
 

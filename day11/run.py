@@ -1,4 +1,3 @@
-
 def increment(password: str) -> str:
     pw = list(password)
     pos = 1
@@ -17,18 +16,21 @@ def is_valid_pass(password: str) -> bool:
     has_pair = False
     pair_char = None
     for i, char in enumerate(password):
-        if not has_straight and i >= 2 \
-                and password[i-2] == chr(ord(char) - 2) \
-                and password[i-1] == chr(ord(char) - 1):
+        if (
+            not has_straight
+            and i >= 2
+            and password[i - 2] == chr(ord(char) - 2)
+            and password[i - 1] == chr(ord(char) - 1)
+        ):
             has_straight = True
         if char in ["i", "o," "l"]:
             return False
-        if not has_pair and i > 0 and char != pair_char and password[i-1] == char:
+        if not has_pair and i > 0 and char != pair_char and password[i - 1] == char:
             if pair_char is None:
                 pair_char = char
             else:
                 has_pair = True
-        
+
     return has_straight and has_pair
 
 

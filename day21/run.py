@@ -1,7 +1,7 @@
-from typing import List, Tuple
+import math
 from dataclasses import dataclass
 from itertools import product
-import math
+from typing import List, Tuple
 
 
 @dataclass
@@ -11,7 +11,9 @@ class Item:
     armor: int
 
 
-def costs(own_hp: int, enemy_hp: int, damage: int, armor: int, weapons: List[Item], armors: List[Item], rings: List[Item]) -> List[Tuple[int, bool]]:
+def costs(
+    own_hp: int, enemy_hp: int, damage: int, armor: int, weapons: List[Item], armors: List[Item], rings: List[Item]
+) -> List[Tuple[int, bool]]:
     costs_and_win = []
 
     for combi in product(weapons, armors, rings, rings):

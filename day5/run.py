@@ -11,15 +11,15 @@ def solve(strings: List[str]) -> int:
         for i, char in enumerate(string):
             if i == 0:
                 continue
-            if char == string[i-1]:
+            if char == string[i - 1]:
                 has_double = True
                 break
-        
+
         no_restricted = not any([invalid in string for invalid in ["ab", "cd", "pq", "xy"]])
 
         if vowels3 and has_double and no_restricted:
             valid_strings += 1
-        
+
     return valid_strings
 
 
@@ -32,21 +32,22 @@ def solve2(strings: List[str]) -> int:
         repeats_with_between = False
 
         for i, char in enumerate(string):
-            if i >= 2 and char == string[i-2]:
+            if i >= 2 and char == string[i - 2]:
                 repeats_with_between = True
-            
-            if i == 0: continue
 
-            pair = string[i-1] + char
+            if i == 0:
+                continue
+
+            pair = string[i - 1] + char
             if pair in doubles:
-                valid = [x for x in doubles[pair] if x != i-1]
+                valid = [x for x in doubles[pair] if x != i - 1]
                 if valid:
                     has_double = True
             else:
                 if pair not in doubles:
                     doubles[pair] = set()
                 doubles[pair].add(i)
-        
+
         if has_double and repeats_with_between:
             valid_strings += 1
 

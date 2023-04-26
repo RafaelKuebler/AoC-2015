@@ -3,24 +3,25 @@ from typing import Set, Tuple
 
 def solve(chars: str, part2: bool = False) -> int:
     actors = [(0, 0)]
-    if part2: actors.append((0, 0))
+    if part2:
+        actors.append((0, 0))
     visited: Set[Tuple[int, int]] = set(actors)
 
     for i, char in enumerate(chars):
         actor_i = i % len(actors)
         pos = actors[actor_i]
         if char == "^":
-            next_pos = (pos[0], pos[1]+1)
+            next_pos = (pos[0], pos[1] + 1)
         elif char == "v":
-            next_pos = (pos[0], pos[1]-1)
+            next_pos = (pos[0], pos[1] - 1)
         elif char == "<":
-            next_pos = (pos[0]-1, pos[1])
+            next_pos = (pos[0] - 1, pos[1])
         elif char == ">":
-            next_pos = (pos[0]+1, pos[1])
+            next_pos = (pos[0] + 1, pos[1])
 
         visited.add(next_pos)
         actors[actor_i] = next_pos
-    
+
     return len(visited)
 
 

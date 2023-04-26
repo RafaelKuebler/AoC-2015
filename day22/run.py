@@ -1,7 +1,7 @@
-from typing import List
-from dataclasses import dataclass, field
 import math
 from copy import deepcopy
+from dataclasses import dataclass, field
+from typing import List
 
 
 @dataclass
@@ -14,6 +14,7 @@ class Spell:
     mana: int = 0
     heal: int = 0
     armor: int = 0
+
 
 @dataclass
 class State:
@@ -49,14 +50,14 @@ def solve(own_hp: int, mana: int, enemy_hp: int, enemy_dmg: int, spells: List[Sp
             if not option.is_player_turn:
                 option.self_hp -= max(1, enemy_dmg - armor)
                 if option.enemy_hp <= 0 and option.spent_mana <= min_mana:
-                    min_mana = new_option.spent_mana
+                    min_mana = option.spent_mana
                     continue
                 elif option.self_hp <= 0:
                     continue
-                
+
                 new_options.append(option)
                 continue
-                
+
             for spell in spells:
                 if spell.name in (x.name for x in option.spells) or option.mana < spell.mana_cost:
                     continue
@@ -76,17 +77,17 @@ def solve(own_hp: int, mana: int, enemy_hp: int, enemy_dmg: int, spells: List[Sp
                 if new_option.enemy_hp <= 0 and new_option.spent_mana <= min_mana:
                     min_mana = new_option.spent_mana
                     continue
-                
+
                 new_options.append(new_option)
         options = new_options
 
-    return min_mana
+    return min_mana  # type: ignore
 
 
 if __name__ == "__main__":
     with open("day22/input.txt") as fd:
         enemy_hp, enemy_dmg = [int(line.strip().split(": ")[1]) for line in fd.readlines()]
-    
+
     spells: List[Spell] = [
         Spell("Magic Missile", 53, instant_dmg=4),
         Spell("Drain", 73, instant_dmg=2, heal=2),

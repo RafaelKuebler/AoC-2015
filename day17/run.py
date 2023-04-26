@@ -1,5 +1,5 @@
-from typing import List
 from itertools import combinations
+from typing import List
 
 
 def solve(total: int, bottles: List[int], part2: bool = False) -> int:

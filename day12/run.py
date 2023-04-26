@@ -1,3 +1,4 @@
+# mypy: disable-error-code="type-arg, no-untyped-def"
 import json
 
 
@@ -22,7 +23,7 @@ def solve(json, part2: bool = False) -> int:
 if __name__ == "__main__":
     with open("day12/input.txt") as fd:
         parsed = json.load(fd)
-    
+
     solution1 = solve(parsed)
     print(solution1)
     assert solution1 == 156366

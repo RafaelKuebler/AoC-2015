@@ -21,7 +21,7 @@ def solve(detected: Dict[str, int], aunties: List[Dict[str, int]], part2: bool =
         for item, amount in detected.items():
             if item not in auntie:
                 continue
-            
+
             if part2 and item in ["cats", "trees"]:
                 if auntie[item] <= amount:
                     matches = False

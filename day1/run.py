@@ -1,10 +1,11 @@
-
 def solve(chars: str, part2: bool = False) -> int:
     floor = 0
-    
+
     for i, char in enumerate(chars):
-        if char == "(": floor += 1
-        else: floor -= 1
+        if char == "(":
+            floor += 1
+        else:
+            floor -= 1
 
         if part2 and floor == -1:
             return i + 1

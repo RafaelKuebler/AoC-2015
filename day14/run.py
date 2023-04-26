@@ -1,20 +1,28 @@
 import re
 from typing import Dict, List, NamedTuple
 
+
 class Reindeer(NamedTuple):
     speed: int
     duration: int
     rest: int
 
+
 def parse(lines: List[str]) -> Dict[str, Reindeer]:
-    regex = re.compile("(?P<name>\w+) can fly (?P<speed>\d+) km/s for (?P<duration>\d+) seconds, but then must rest for (?P<rest>\d+) seconds.")
+    regex = re.compile(
+        r"(?P<name>\w+) can fly (?P<speed>\d+) km/s for (?P<duration>\d+) seconds, "
+        r"but then must rest for (?P<rest>\d+) seconds."
+    )
     reindeers: Dict[str, Reindeer] = {}
 
     for line in lines:
         result = regex.match(line)
-        reindeers[result.group("name")] = Reindeer(int(result.group("speed")), int(result.group("duration")), int(result.group("rest")))
-    
+        reindeers[result.group("name")] = Reindeer(
+            int(result.group("speed")), int(result.group("duration")), int(result.group("rest"))
+        )
+
     return reindeers
+
 
 def distances_after(reindeers: Dict[str, Reindeer], time: int) -> Dict[str, int]:
     distances: Dict[str, int] = {}

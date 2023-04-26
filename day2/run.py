@@ -1,5 +1,4 @@
 from typing import List
-import math
 
 
 def solve(lines: List[str]) -> int:
@@ -7,20 +6,21 @@ def solve(lines: List[str]) -> int:
 
     for line in lines:
         l, w, h = [int(num) for num in line.split("x")]
-    
-        sides = [l*w, w*h, h*l]
+
+        sides = [l * w, w * h, h * l]
         total_paper += sum(sides) * 2 + min(sides)
 
     return total_paper
+
 
 def solve2(lines: List[str]) -> int:
     total_ribbon = 0
 
     for line in lines:
         l, w, h = [int(num) for num in line.split("x")]
-    
+
         sides = sorted([l, w, h])
-        total_ribbon += sum(sides[:2]) * 2 + l*w*h
+        total_ribbon += sum(sides[:2]) * 2 + l * w * h
 
     return total_ribbon
 
