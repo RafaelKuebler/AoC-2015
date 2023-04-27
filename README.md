@@ -1,6 +1,6 @@
 # Advent of Code 2015
 
-This repo contains my solutions for the [Advent of Code 2015](https://adventofcode.com/2015).
+This repo contains my `Python 3.11` solutions for the [Advent of Code 2015](https://adventofcode.com/2015).
 
 From the website:
 
@@ -8,6 +8,6 @@ From the website:
 
 ## Running
 
-The `run.py` files are supposed to be run from the repo root.
+The `run.py` files are supposed to be run from the repo root, e.g. like `python day1/run.py`.
 
-The solutions are all written in `Python 3.8`. Newer Python versions have been out, but I just happened to have this one installed at the time.
+Some handy commands can be run via `make`. See the [Makefile](Makefile).
